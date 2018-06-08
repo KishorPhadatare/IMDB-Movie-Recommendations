@@ -1,0 +1,38 @@
+Here we have IMDB data set for movies as mentioned in the data set information file. We are using hortonworks sandbox for data analysis. 
+The things are performed as follows:
+-Download Hortonworks Data Platform (HDP®) for VirtualBox from following link:
+https://hortonworks.com/downloads/#sandbox
+-Import it on VirtualBox.
+-Launch the Hortonworks Docker Sandbox HDP on virtualBox.
+-Once the launch is complete use Alt+F5 buttons to get into bash shell command box.
+-Use the Username: root & password: hadoop to login in.
+-Execute the following command to establish ssh connection for user maria_dev.
+ssh -p 2222 maria_dev@127.0.0.1
+-It will ask you for verification. Enter 'Yes' to establish ssh connection.
+-Download, install & launch Putty application.
+-Select following to establish a connection:
+Connection type:ssh
+HostName/ IP address: maria_dev@127.0.0.1
+Port: 2222
+Close Window on Exit: Only on clean exit
+-Save the connection & open it.
+-Login with username: maria_dev & password: maria_dev
+-Enter following commands to install python libraries & dataset on hadoop cluser:
+1. su root (It will ask for password. Enter password as hadoop)
+2. Once the you logged in as root execute following statements:
+yum install python-pip
+yum install nano
+pip install mrjob
+exit
+3. Under user maria_dev access the files & script using following commands:
+wget http://media.sundog-soft.com/hadoop/ml-100k/u.data
+wget http://media.sundog-soft.com/hadoop/RatingsBreakdown.py
+4. Once the files & scripts are downloaded use following command to run it Locally & run with Hadoop:
+Run Locally:
+python RatingsBreakdown.py u.data
+Run with Hadoop:
+python RatingsBreakdown.py -r hadoop --hadoop-streaming-jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-streaming.jar u.data
+5. To access nano use following command:
+nano RatingsBreakdown.py
+6. Change the code as per the given code file.
+7. Reapet step 4 to get output.

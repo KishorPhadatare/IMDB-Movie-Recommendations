@@ -1,0 +1,47 @@
+Here we have IMDB data set for movies as mentioned in the data set information file. We are using hortonworks sandbox for data analysis. 
+The things are performed as follows:
+-Download Hortonworks Data Platform (HDP®) for VirtualBox from following link:
+https://hortonworks.com/downloads/#sandbox
+-Import it on VirtualBox.
+-Launch the Hortonworks Docker Sandbox HDP on virtualBox.
+-Click on Alt+F5 buttons on your keyboard.
+-It will open up the Bash Shell Command prompt.
+-Login in as username: root & password: hadoop
+-Enter following command to set up a password for user:admin
+reset password admin
+-It will give you prompt to reset the admin password.
+-Kindly set your new your_password.
+-Open address http://127.0.0.1:8080 in web browser.
+-Login with username: admin & password: your_password.
+-Go to spark services >> configs >> Open up Advanced spark-log4j-properties.
+Change the log4j.rootCategory=INFO, console to log4j.rootCategory=ERROR, console.
+-Save it & restart all services. 
+- Repeat the same for Spark2.
+-Execute the following command to establish ssh connection for user maria_dev.
+ssh -p 2222 maria_dev@127.0.0.1
+-It will ask you for verification. Enter 'Yes' to establish ssh connection.
+-Download, install & launch Putty application.
+-Select following to establish a connection:
+Connection type:ssh
+HostName/ IP address: maria_dev@127.0.0.1
+Port: 2222
+Close Window on Exit: Only on clean exit
+-Save the connection & open it.
+-Login with username: maria_dev & password: maria_dev
+3. Under user maria_dev access the files & script using following commands:
+-hadoop fs -mkdir ml-100k
+-cd ml-100k
+-Under /ml-100 directory download following file.
+wget http://media.sundog-soft.com/hadoop/ml-100k/u.item
+-cd ..
+-Download Spark.zip file under /home/maria_dev
+wget http://media.sundog-soft.com/hadoop/Spark.zip
+-unzip Spark.zip
+-spark-submit LowestRatedMovieSpark.py
+It will display all the movies which are haivng 1.0 rating.
+-Also, you can select what kind of spark you want to select.
+Enter following command:
+export SPARK_MAJOR_VERSION=2
+-It will select Spark 2.0 version.
+Then execute following command to perform the analysis:
+submit-spark LowestRatedMovieDataFrame.py

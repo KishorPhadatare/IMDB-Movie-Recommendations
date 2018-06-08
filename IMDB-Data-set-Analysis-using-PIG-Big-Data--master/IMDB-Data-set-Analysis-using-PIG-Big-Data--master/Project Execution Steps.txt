@@ -1,0 +1,13 @@
+Launch Hortonworks docker sandbox on VirtualBox
+Connect to 127.0.0.1:8080 using web browser.
+Login as username maria_dev & password as maria_dev.
+Click button which is in between Admin & maria_dev button.
+Select 'Files View' option.
+Go through following directory:
+/user/maria_dev/
+Create a new folder ml-100k & upload u.data & u.item files in it.
+Click button which is in between Admin & maria_dev button.
+Select 'Pig View' option.
+Write a code as mentioned in the project code file.
+Execute the code.
+Verify the output.
